@@ -1,0 +1,16 @@
+Z:\D\VB6\dotNET2COM\bin\Release\dotNET2COM.dll
+Z:\D\VB6\dotNET2COM\bin\Release\dotNET2COM.pdb
+Z:\D\VB6\dotNET2COM\bin\Release\dotNET2COM.xml
+Z:\D\VB6\dotNET2COM\bin\Release\dotNET2COM.tlb
+Z:\D\VB6\dotNET2COM\obj\Release\ResolveAssemblyReference.cache
+Z:\D\VB6\dotNET2COM\obj\Release\dotNET2COM.dll
+Z:\D\VB6\dotNET2COM\obj\Release\dotNET2COM.xml
+Z:\D\VB6\dotNET2COM\obj\Release\dotNET2COM.pdb
+D:\VB6\dotNET2COM\obj\Release\dotNET2COM.vbprojResolveAssemblyReference.cache
+D:\VB6\dotNET2COM\obj\Release\dotNET2COM.dll
+D:\VB6\dotNET2COM\obj\Release\dotNET2COM.xml
+D:\VB6\dotNET2COM\obj\Release\dotNET2COM.pdb
+D:\VB6\dotNET2COM\bin\Release\dotNET2COM.dll
+D:\VB6\dotNET2COM\bin\Release\dotNET2COM.pdb
+D:\VB6\dotNET2COM\bin\Release\dotNET2COM.xml
+D:\VB6\dotNET2COM\bin\Release\dotNET2COM.tlb

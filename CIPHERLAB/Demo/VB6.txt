@@ -1,0 +1,26 @@
+' VB6调用DEMO
+
+strComponentName = "Jizhujian.Barcode.CipherLabCPT"
+' 创建COM组件
+Set obj = CreateObject(strComponentName)
+
+' 开始上传条形码
+obj.StartLookupDownload "COM1", 115200
+' 上传条形码
+obj.SendLookupRecord "条形码及数据1"
+obj.SendLookupRecord "条形码及数据2"
+' ……
+' 结束上传条形码
+obj.FinishLookupDownload
+
+' 开始读取条形码
+obj.StartDataUpload "COM1", 115200
+' 读取条形码
+Do
+  strCTNBarcode = Trim(obj.ReadDataRecord)
+Loop While strCTNBarcode > ""
+' 结束读取条形码
+obj.FinishDataUpload
+
+' 释放组件
+Set obj = Nothing

@@ -1,0 +1,70 @@
+****************************************************************************
+*****       Protocol for downloading lookup files to terminals         *****
+****************************************************************************
+
+Note : All commands or records sent to /or received from terminals should be
+       ended with a return character (0x0d or '\r').
+
+1. Send "CIPHER\r" command to the terminal and wait for return.
+
+2. If the terminal returns "ACK", then it is ready for receiving lookup data
+   from the PC.
+
+3. Send lookup data to terminal record by record. Each record should be ended
+   with 2 bytes of checksum and a carriage return (0x0d).
+   The checksum is calculated according to the following rules:
+
+   A. Sum up the data of a record byte by byte.
+   B. Devide the sum by 256 to get the first byte checksum value. If this
+      value happens to be 13 (the return character: 0x0d), change it to 14
+      (0x0e).
+   C. The remaining of the above calculation is the second byte checksum
+      value. If it happens to be 13, change it to 14.
+   D. Append a carriage return (0x0d) to the end.
+
+4. If the terminal returns "ACK\r", send next record to the terminal,
+   otherwise, re-send the same record to the terminal. Repeat the same
+   procedures until all the data is successfully transmitted.
+
+5. If no more data, send the "OVER\r" command to the terminal to finish
+   this communication.
+
+
+****************************************************************************
+*****          Protocol for receiving data from terminals              *****
+****************************************************************************
+
+Note : All commands or records sent to or received from terminals should be
+       ended with a return character (0x0d or '\r').
+
+1. Send the "READ\r" command to the terminal and wait for return.
+
+2. If the terminal returns "ACK\r", then it is ready to send data to PC.
+
+3. The format of each record received from the terminal is as follows,
+
+   A. The first byte is a sequence count rotated from 0 to 9. It's purpose
+      is to ensure the correct order of data transmission.
+   B. The last two bytes are the checksum values. The checksum is calculated
+      by adding up the sequence count and all the data bytes.
+   C. Devide the sum calculated above by 256 will get the last byte checksum
+      value. If this value happens to be 13 (the return character: 0x0d),
+      change it to 14 (0x0e).
+   D. The remaining of the above calculation is the first byte checksum
+      value. If it happens to be 13, change it to 14.
+   E. Please note that the checksum byte-order for this protocol is different
+      to that of downloading lookup files.
+   F. Each record is ended with a carriage return.
+
+4. If the received data is correct, the PC program should return "ACK\r" to the 
+   terminal so that it can send the next record.
+
+5. If the received data is not correct, the PC program should return "NAK\r"
+   to the terminal so that it can resend the record.
+
+6. If the received data is duplicated (i.e. the sequence count is same as
+   previous record), then the PC program should discard this record but still
+   return "ACK\r" to the terminal so that it can send the next record.
+
+7. Repeat the above procedures until receiving the "OVER\r" command from the
+   terminal.

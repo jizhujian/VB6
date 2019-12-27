@@ -1,0 +1,36 @@
+Type=Exe
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\system32\stdole2.tlb#OLE Automation
+Reference=*\G{E6435081-0215-4261-8643-73C7A19BB11C}#5.1#0#C:\VB6\VB6Common.dll#VB6 通用函数库
+Reference=*\G{3131CFE6-39F2-4277-8F1E-72F99E53A875}#c.6#0#C:\Program Files\Jizhujian\Common\dotNET2COM.tlb#向 COM 组件公开部分 dotNET 函数库
+Form=frmMain.frm
+ResFile32="..\XPTheme.res"
+Startup="frmMain"
+ExeName32="LicenseKeyViewer.exe"
+Path32="C:\Documents and Settings\Administrator\My Documents"
+Command32=""
+Name="LicenseKeyViewer"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=0
+AutoIncrementVer=0
+ServerSupportFiles=0
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

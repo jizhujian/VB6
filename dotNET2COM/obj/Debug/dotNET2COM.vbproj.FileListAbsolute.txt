@@ -1,0 +1,7 @@
+D:\VB6\dotNET2COM\bin\Debug\dotNET2COM.dll
+D:\VB6\dotNET2COM\bin\Debug\dotNET2COM.pdb
+D:\VB6\dotNET2COM\bin\Debug\dotNET2COM.xml
+D:\VB6\dotNET2COM\bin\Debug\dotNET2COM.tlb
+D:\VB6\dotNET2COM\obj\Debug\dotNET2COM.dll
+D:\VB6\dotNET2COM\obj\Debug\dotNET2COM.xml
+D:\VB6\dotNET2COM\obj\Debug\dotNET2COM.pdb

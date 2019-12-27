@@ -1,0 +1,10 @@
+1. Project Details → COM → Type Libraries，删除 dotNet2COM.tlb
+2. exit
+3. Project Definition → File and Folder → dotNET2COM.dll → Properties → 取消勾选 Auto register file (DLL, OCX, etc).
+4. exit
+5. Project Definition → Registry → HKEY_CLASSES_ROOT → 删除CLSID、dotNET2COM*、Record
+6. exit
+7. Project Definition → File and Folder → dotNET2COM.dll → Properties → 勾选 Auto register file (DLL, OCX, etc).
+8. exit
+9. Project Details → COM → Type Libraries，添加 dotNet2COM.tlb
+OK.

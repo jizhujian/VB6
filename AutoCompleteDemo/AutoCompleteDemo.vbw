@@ -1,0 +1,5 @@
+MainForm = 70, 224, 882, 892, , 129, 117, 727, 450, C
+AutoComplete = 25, 105, 893, 773, C
+AutoCompleteHandle = 50, 50, 853, 718, C
+VTableSubclass = 75, 75, 696, 692, 
+Common = 150, 150, 771, 767, C

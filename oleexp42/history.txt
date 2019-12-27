@@ -1,0 +1,257 @@
+(oleexp v4.2 - Released 01 Mar 2017)
+-Added interfaces from NETCONLib/Netcon.idl. The existing Windows typelib was very incomplete and used types that would lead to automation errors.
+-Netcon set:  IEnumNetConnection, INetConnection, INetConnectionManager, INetConnectionConnectUi, IEnumNetSharingPortMapping, INetSharingPortMapping, IEnumNetSharingEveryConnection, IEnumNetSharingPublicConnection, IEnumNetSharingPrivateConnection, IEnumNetConnection, INetConnection, INetConnectionManager, INetConnectionConnectUi, IEnumNetSharingPortMapping, INetSharingPortMapping, INetSharingPortMappingProps, INetSharingPortMapping, IEnumNetSharingEveryConnection, IEnumNetSharingPublicConnection, IEnumNetSharingPrivateConnection, INetSharingPortMappingCollection, INetConnectionProps, INetSharingConfiguration, INetSharingEveryConnectionCollection, INetSharingPublicConnectionCollection, INetSharingPrivateConnectionCollection, INetSharingManager
+-Some interfaces with Windows implementations that are never or rarely implemented in VB now have members that are functions instead of subs so the HRESULT's are available. This change was made with IFileOperation, IShellLibrary, IShellLinkDataList, and IExplorerBrowser.
+-Added missing struct members to SHELLEXECUTEINFO that for some reason were in SHELLEXECUTEINFO2. The latter will remain for compatibility.
+-Added enums SE_ERR_x, ASSOCCLASS; structs ASSOCIATIONELEMENT
+-Added additional API declares
+-Added all structs, enums, and APIs for Shell_NotifyIcon
+-Added additional interface for coclass ProgressDialog, IOperationsProgressDialog
+-Added API SHGetSetSettings and related enum SSF_ constants and SHELLSTATE struct
+-Added FILE_FLAG_ values to FILE_ATTRIBUTES enum
+-(mIID) Updated with netcon interface IIDs
+
+(oleexp v4.11 - Released 29 Dec 2016)
+-Added interface IPolicyConfig/IPolicyConfigVista with coclass PolicyConfigClient/CPolicyConfigVistaClient; these are undocumented interfaces for managing audio devices. The former is for Windows 7 and higher, 
+-(Bug fix) IShellItemFilter.GetItemEnumFlags changed from out to in,out so it can be used with Implements
+
+(oleexp v4.1 - Released 01 Dec 2016)
+-Added interfaces IFileSystemBindData and IFileSystemBindData2
+-Added interface IObjectWithFolderEnumMode and related enum FOLDER_ENUM_MODE
+-Added all known string parameters for IBindCtx as of Win10; e.g. STR_BIND_FOLDER_ENUM_MODE. See module BindCtxSTR to view them all.
+-Added enums ASSOC_FILTER and SHIL
+-Added a large number of shell32 APIs that are commonly used with the interfaces in oleexp. For a complete list, see the shell32 module in the Object Browser.
+-Added a few additional APIs to ole32, kernel32 and shlwapi modules as well.
+-(Bug fix) IThumbnailCache.GetThumbnailByID cannot pass user type byval, changed to ByRef. Verified working.
+-(Bug fix) IFolderFilter is primarily used with Implements, but had an out-only parameter. Changed to in,out.
+
+(oleexp v4.0 - Released 24 Nov 2016)
+-Added interfaces IThumbnailCache, IThumbnailSettings, and ISharedBitmap. Added coclasses LocalThumbnailCache and SharedBitmap. Added associated enums WTS_FLAGS, WTS_CACHEFLAGS, WTS_CONTEXTFLAGS, and struct WTS_THUMBNAILID.
+-Added interface IDefaultExtractIconInit
+-Added interface IApplicationDocumentLists with coclass ApplicationDocumentLists
+-Added interface IHomeGroup with coclass HomeGroup; added associated enum HOMEGROUPSHARINGCHOICES
+-Added interface ITrackShellMenu with coclass TrackShellMenu
+-Added interface IContextMenuCB and related structs QCMINFO and DFMICS
+-Added interface IExecuteCommand with coclasses ExecuteFolder, ExecuteUnknown, and AppShellVerbHandler
+-Added interfaces IExplorerCommand, IEnumExplorerCommand, IExplorerCommandProvider, IExplorerCommandState, IExecuteCommandHost, and IInitializeCommand. Added associated enums EC_HOST_UI_MODE, EXPCMDFLAGS and EXPCMDSTATE.
+-Added interface INewWindowManger
+-Added interface IDelegateFolder
+-Added interface IBrowserFrameOptions
+-Added interface IFileIsInUse
+-Added interface ICreateObject
+-Added interface IShellChangeNotify
+-Added interfaces IInitializeWithPropertyStore and IInitializeWithWindow. The latter is Win8+.
+-Added coclass ApplicationAssociationRegistration for IApplicationAssociationRegistration
+-Added coclass ApplicationAssociationRegistrationUI for IApplicationAssociationRegistrationUI
+-Added COMDLG_FILTERSPEC struct (IFileOpenDialog/IFileSaveDialog)
+-Added SysCommands enum (SC_ values; SC_CLOSE, SC_MINIMIZE, etc)
+-FILEOPENDIALOGOPTIONS enum was missing FOS_SUPPORTSTREAMABLEITEMS
+-Bug fix: Some features listed as included in 3.8 weren't in the release posted.
+-(mIID) Added all IIDs for new interfaces
+-(mIID) Added all known other SID_ values
+
+
+(oleexp v3.8 - Released 29 Sept 2016)
+-Added all interfaces for Portable Devices
+-IPortableDeviceConnector / IEnumPortableDeviceConnectors have been placed in oleexpimp.tlb, since IPortableDeviceConnector has the same UUID as IPortableDevice, so these cannot be placed in the same TLB.
+-Given the context and scope expansion, olelib2 has been forked into oleexpImp. This TLB has a new UUID and a version number of 2.00. You may run a Replace All in your code to change 'olelib2.' to 'oleexpimp.'
+-Added several enums for IImageList/IImageList2
+-Added enum DATAOBJ_GET_ITEM_FLAGS
+-Added enum NTSTATUS with all codes from ntstatus.h
+-(oleexpimp) Changed IEnumString params to ByVal. CopyMemory calls to the pointers cause an app crash if it's done ByRef as the original SDK version is.
+-Bug fix: Enum PIDISM contained a typo that created 'z' as a global constant. This is not part of the enum and has been removed.
+-Bug fix: (oleexpimp) For some reason, in the original olelib the Implements version of IEnumIDList was in olelib.tlb, and the version in olelib2.tlb could not be used with Implements. Prior to this release neither could be used as the original def was changed but the olelib2 def wasn't; it has been now. Use 'Implements oleexpimp.IEnumIDList'. The 'Next' method has been changed to no retval, so pceltFetched is an argument and it's a sub. A sample published had done it with that as the retval, but the eliminates being able to vtable-swap to determine when the enum is finished.
+-Bug fix: (oleexpimp) Something similar occured with IShellFolder. The Implements version is now also in oleexpimp.tlb, and CompareIDs has been changed from function to sub. All other methods set up as Functions using retval remain unchanged at this point.
+-(NEW INCLUSION) Edanmo also put out a TLB for MIME, and it imported olelib. So as with olelib2, it has been recompiled against the latest version of oleexp3.tlb, so it can now be used without needing the legacy olelib.tlb. No intentional changes were made, but as the source was unpublished it was neccessary to use source generated by OLEVIEW. The new mimelib.tlb was assigned a new GUID and version number so it will not conflict with the old one. Please report any bugs.
+-(mIID) All IID_'s for the new Portable Device interfaces have been added to mIID.
+-(mIID) Removed IID_ShellDetails; this was the fmtid for some file info PKEYs and shouldn't have been included like a COM interface. IID_IShellDetails is the shell interface; this was already included and is the proper one to use for QueryInterface.
+-(mIID) Around a dozen missing IIDs were added as they had been formatted different and the conversion script missed them.
+
+(oleexp v3.7 - Released 13 Jul 2016)
+-Added DirectShow support. All interfaces under 'DirectShow Interfaces' on MSDN Library. NOTE: DirectShow interfaces are entirely untested at this point. Please provide feedback!
+---New addon mDirectShow.bas containing IID's that are exclusively used by DirectShow.
+-Fixed data structure for IMMNotificationClient. The PKEY is passed in a very unusual way and must be dealt with in an even more unusual way, so please see Core Audio Basics demo project for usage technique.
+---This is currently an open issue. IAudioEndpointVolumeCallback is declared as a ByVal passed struct that uses a GUID, however the normal technique of changing it to ByRef for VB works fine here. Please notify me of any issues with this or other callback interfaces.
+-Added fairly comprehensive enum for WM_ constants (WindowMessages)-- should be all the official ones, and complete enums WS_ constants (WindowStyles), and WS_EX_ constants (WindowStylesEx)
+-Added missing flags for EXPLORER_BROWSER_OPTIONS (IExplorerBrowser)
+-Unhid some functions of the ShellWindows object. Events are still hidden; you can remove the hidden tag and recompile. Registration functions and FindWindowSW are now shown.
+-Added ShellWindowFindWindowOptions enum for IShellWindows.FindWindowSW
+-mIID now includes IID's for all interfaces (besides the specialized ones for CoreAudio/DirectShow which are still in the addon modules for those features)
+---Due to irregularities in the format of interface defs in a few parts of the original olelib set, the automated tool I made might have missed something or truncated a letter. I've done my best to clean it all up, but if anything is missing/wrong please notify me!
+
+(oleexp v3.6 - Released 16 May 2016)
+-Added CoreAudio support. Currently all interfaces under the 'Core Audio Interfaces' list on MSDN have been added, and a few additional related interfaces. See https://msdn.microsoft.com/en-us/library/windows/desktop/dd370805%28v=vs.85%29.aspx for a complete list. Structures and enums also added.
+-A support addon, mCoreAudio.bas, has also been created containing IID_ entries for all Core Audio interfaces, several additional GUID's used, and several PKEYs. 
+-Some PROPERTYKEY and IID_ entries also used outside just Core Audio have been added to mPKEY.bas and mIID.bas
+
+(oleexp v3.51 - Released 9 May 2016)
+-Critical bugfix for IShellLinkDataList; CopyDataBlock caused an unsupported automation type error due to an incorrect declare.
+-Added enum and structs for IShellLinkDataList datablocks; see SHELL_LINK_DATABLOCK_SIG enum, structs: DATABLOCK_HEADER, NT_CONSOLE_PROPS, NT_FE_CONSOLE_PROPS, EXP_DARWIN_LINK, EXP_SPECIAL_FOLDER, EXP_SZ_LINK, EXP_PROPERTYSTORAGE.
+
+(oleexp v3.5 - Released 25 Apr 2016)
+-Restored interface IFolderFilter... somehow, this interface got commented out in the copy of olelib that oleexp started from. Very odd.
+-Added interface IAutoCompleteDropDown
+-Added interface IStartMenuPinnedList
+-Added interface IDataObjectAsyncCapability (formerly IAsyncOperation; implementation details are different too; see old in shell.inc vs new in exp_main.odl)
+-Added interface IObjMgr
+-Added interface IShellLinkDataList
+-Added interface IInitializeWithBindCtx
+-Bugfix and update to InvokeCommandMask enum. CMIC_MASK_CONTROL_DOWN should be 0x40000000. Uncommented undocumented entries. Added newer flags.
+-Associated InvokeCommandMask with CMINVOKECOMMANDINFO.lpParameters
+-(mIID) Optional add-on mIID.bas updated to include IID_IContextMenu, IID_IContextMenu2, and IID_IContextMenu3
+-(mIID) Optional add-on mIID.bas now includes all KNOWNFOLDER (e.g. FOLDERID_Documents) UUIDs in ready-to-use form.
+-Added KF_FLAG_DEFAULT (0x00000000) to KNOWN_FOLDER_FLAG enum
+-Updated WIN32_FIND_DATAA/W to use FILE_ATTRIBUTES enum for easy use with intellisense
+-Updated the following enums to include all new values through Windows 10: QueryContextMenuFlags, SHCONTF, IEIFlags, SHCOLSTATE, ASSOCSTR, ASSOCF, ASSOCDATA, SHACF, FOLDERFLAGS, SLR_FLAGS, SLGP_FLAGS, FILE_ATTRIBUTES, CATEGORYINFO_FLAGS, ARCONTENT, SPBEGINF, SPACTION, WALLPAPEROPT, PROGDLG, SHELLEXECUTEMASK, GILFlags, GILRes, PSP_FLAGS, PSPCALLBACKMESSAGES, PSNOTIFYCODES, PSNOTIFYRESULTS, PSWIZBUTTONS, PSMESSAGES, QITipFlags, FILEOP_FLAGS, AUTOCOMPLETEOPTIONS, AUTOCOMPLETELISTOPTIONS, SVSI_Flags, SVGIO_Flags, OLECMDID, URLACTIONS, PUAF, URLTEMPLATE, ZAFLAGS, PROPSETFLAG, BINDSTRING, HTTP_QUERY, STATURL_QUERYFLAGS, STATURLFLAGS, IURL_INVOKECOMMAND_FLAGS, PID_IS, PID_INTSITE, BINDINFO_OPTIONS, BSCF, BINDSTATUS, CLSCTX, MSHCTX, FD_FLAGS, WBIDM, TYPEFLAGS, TASK_FLAGS
+
+
+
+(oleexp v3.4 - Released 10 Jan 2016)
+-Added interface IShellWindows with coclass ShellWindows
+-Added interfaces IFolderView2, IFolderViewOptions and IFolderViewSettings
+-Added interface IResolveShellLink
+-Added several additional rarely used clipboard format strings (CFSTR_xxx)
+-(ORIGINAL OLELIB2 CONTENT CHANGE) oleexp modified some interfaces that are used with Implements which were in the original olelib (and not olelib2). olelib2 has been modified to include Implements-compatible versions of IShellBrowser, IShellView, IShellView2, and IShellFolder2.
+-(ORIGINAL OLELIB CONTENT CHANGE) Wanted to add standard compiler flag #define CALLCONV CC_STDCALL, and this required renaming the CALLCONV enum to CALLCONV_TYPES. The variables and their values are unchanged. If you have declared a variable 'As CALLCONV', change to 'As CALLCONV_TYPES'.
+-Bugfix: SSDP enum duplicated improperly named BO_Flags. IExplorerBrowser now uses BO_Flags (only important if you had Dim x As SDSP); added missing values to BO_Flags.
+
+
+(oleexp v3.3 - Released 03 Dec 2015)
+-Added interface IPreviewHandlerVisuals; this allows fixing the bug where previewing fonts with IPreviewHandler just showed black boxes (see updated IPreviewHandler sample project for details).
+-Added interface IPreviewHandlerFrame
+-Added interface IVisualProperties
+-Added interfaces IShellApp, IPublishedApp, IPublishedApp2, IEnumPublishedApps, and IAppPublisher. 
+-Added interfaces IShellIconOverlay and IShellIconOverlayIdentifier
+-Added several additional CFSTR_ dragdrop/clipboard formats, and moved CFSTR_MIME_x formats to exp_cf.odl with the rest.
+-Added DRAGDRAG_E_x and DRAGDROP_S_x HRESULTs to dragdrop defs module
+====
+Note: The following interfaces were added in v3.2 but were missing from this file:
+-ICommDlgBrowser, ICommDlgBrowser2, ICommDlgBrowser3
+-IApplicationAssociationRegistration, IApplicationAssociationRegistrationUI
+-IShellFolderViewCB
+-IStreamAsync
+-IColumnManager
+
+(oleexp v3.2 - Released 10 Nov 2015)
+-Added interface IEnumFullIDList.
+-Added enum for IInternetSecurityMananger::MapURLToZone flags.
+-Added coclass for IInternetSecurityManager's default implementation
+-Changed IShellItemArray.BindToHandler's IBindCtx argument to a long; can pass ObjPtr(bindctx) if actually using it.
+-Added comprehensive enum of clipboard formats. Some of these are strings, so these were added as consts in a module rather than a typical enum
+-Added regular enums: all VK_ codes as VirtualKeyCodes, all SW_ codes as SHOWWINDOW, DROPIMAGETYPES
+-Added DROPDESCRIPTION structure
+-Updated HRESULTS enum to include NOERROR
+-Bug fix: Removed RemoteNext from IEnumShellItems;  it's not a true entry and would throw off the v-table order, rendering Skip, Reset, and Clone inoperable. Fortunely those are rarely used, but just in case they're now fixed. Verified no other interface has a Remote included.
+-Bug fix: IShellImageDataAbort had IUnknown methods visible; particularly problematic since it's implement-only and you don't want to also have to implement IUnknown. This has been corrected.
+
+(oleexp v3.1 - Released 18 Sep 2015)
+-FOLDERVIEWMODE and FOLDERFLAGS enums updated with new entries and moved to revisedtypes.odl
+-Bug Fix: IKnownFolderManager; fixed user-type byvals in a couple places, converted strings that expected paths to LONG for Unicode support (use StrPtr), and removed invalid RemoteRedirect entry.
+-Added interfaces IImageList and IImageList2. There is a default implementation coclass, but it must be created via ImageList_CoCreateInstance API, the normal coclass declaration/As New method fails. IImageList, but not IImageList2, is all Subs instead of error-code returning Long functions- this was done because IImageList is also made to be implemented in a class module as a callback object set in IImageList2.
+-Added additional interfaces for working with the Property Storage system: IPropertyStoreCache, IPropertyStoreCapabilities, IPropertyStoreFactory, IPropertyDescriptionSearchInfo, and IPropertyDescriptionRelatedPropertyInfo.
+-Added interface IParentAndItem; more easily keep track of a parent pidl and child pidl.
+-Added interface IImageRecompress with coclass ImageRecompress.
+-Added interface IImageTranscode with coclass ImageTranscode.
+-Added interface IThumbnailHandlerFactory
+-Added interface IShellImageDataFactory, IShellImageData and IShellImageDataAbort, with coclass ShellImageDataFactory.
+-Added interface ISearchFolderItemFactory with coclass SearchFolderItemFactory and interfaces it depends on: IRichChunk, ICondition, ICondition2, and IConditionFactory/IConditionFactory2 with coclass ConditionFactory.
+-Added interface IPreviousVersionsInfo with coclass PreviousVersions.
+-Added interface ISearchBoxInfo.
+-Added interface IZoneIdentifier with coclass PersistentZoneIdentifier.
+-Added enums/structs that are common for shell programming; FILE_ATTRIBUTES values, STGFMT and STGOPTIONS (IStorage related), 
+
+
+(oleexp v3.01 - Released 14 Aug 2015)
+-Bug Fix: INamespaceTreeControlEvents gave an 'bad interface for implements' error; this was due to a missed explicit typing of olelib.IUnknown. Attempted to change to oleexp3.IUnknown; but that's inexplicable not recognized. So left it as LPVOID; should not make a difference, and stops the error. Checked for similar errors; could not find any. However, a larger error exists regarding OnBeforeContextMenu and OnAfterContextMenu, and the control will crash on right clicking a folder. This was the case originally and I missed it; I do not currently know how to fix it.
+
+(oleexp v3.0 - Released 10 Aug 2015)
+-oleexp is now a single project. It's now a direct fork/derivative of olelib, and no longer an expansion. It has been assigned a new GUID, meaning that VB sees it as a new typelib, not a version of previous ones. Minor code changes are required, but simple: replace all 'olelib.' and 'oleexp.' with 'oleexp3.', assuming you had any such explicit typing.
+-Source files are still separated; oleexp.odl was modified to include all of olelib's .inc files before its own.
+-To use, remove references for olelib.tlb and oleexp.tlb, then add a reference to oleexp3.tlb
+-Added newer values to shlwapi.inc ASSOCSTR enum in original olelib.
+-Added interface IPreviewHandler
+-Added interface group IInitializeFromFile, IInitializeFromStream, and IInitializeFromItem
+
+(oleexp v2.0 - Released 17 Jun 2015)
+-IMPORTANT: Made change to original olelib: IShellView, IShellView2, and IShellBrowser had major issues, largest among them a riid, ppv was returning a Long as a retval! Other trying interfaces as retvals, inheritance issues, etc. IShellView, IShellView2, IShellBrowser and related enums have been moved to oleexp and corrected.
+-Added interface IShellView3
+-Added interface set ITransferSource, ITransferDesination, ITransferAdviseSink, IShellItemResources, IEnumResources
+-Added interface set IKnownFolder, IKnownFolderManager with KnownFolderManager coclass
+-Added interface set IExplorerBrowser, IExplorerBrowserEvents with ExplorerBrowser coclass
+-Added interface set INameSpaceTreeControl, INameSpaceTreeControl2, INameSpaceTreeControlEvents, INameSpaceTreeControlDropHandler, INameSpaceTreeControlAccessible, INameSpaceTreeControlCustomDraw, INameSpaceTreeControlFolderCapabilities with NamespaceTreeControl coclass
+-IShellFolder2 had been declared independently instead of inheriting from IShellFolder. Many of the methods for returning other interfaces (GetUIObjectOf, etc) were incorrectly declared as long. Considered changing, but instead removed all the IShellFolder methods and gave it proper inheritance. The IShellFolder interface it inherits is the new, corrected oleexp one. The previous entries are present in the source but commented out if needed for reference or to switch back.
+-IShellFolder.BindToStorage stood out as the only method not able to return an HRESULT code; changed from Sub to Function.
+-IShellItem.BindToHandler IBindCtx argument was changed to Long. A bind context is rarely used, so the requirement to make and pass a blank one has been eliminated. If you do use one, you can pass ObjPtr(yourbindctx).
+-IShellItemImageFactory has finally been fixed. MSDN and SHobjIdl.idl both confirm 1st argument as SIZE, and typedef struct SIZE {LONG cx, LONG xy} SIZE; Double checked olelib def, it's correct. However, changing it into two parameters, [in] LONG cx, [in] LONG cy , has fixed it. Truly bizarre, especially on account of my C++ workaround using a SIZE struct, but glad to have it working.
+-Bug Fix: In IShellFolder2 where GetDefaultSearchGUID failed with unsupported automation type error.
+-Bug Fix: 'cannot pass user type byval' in IFileDialog.SetClientGuid
+-Bug Fix: IFileDialog.GetFileName was returning blank or giving out of memory error. This should be a Long, not a string, and then converted to a string with BStrFromLPWStr.
+-Bug Fix: IPropertyStore: GetValue had a 'can't pass user type byval error', SetValue had the reverse problem (is now ByVal VARIANT) and other methods were left 'as any' and have been changed to VARIANT. Even though that's a native type, PropVariantToVariant may be needed to convert it into something usable.
+-Bug Fix: 'cannot pass user type byval' in IObjectWithPropertyKey
+-Bug Fix: IPropertyChange and IPropertyChangeArray (PROPVARIANT->VARIANT and byval user types)
+
+
+(oleexp v1.9 - Released 11 Jun 2015)
+-IMPORTANT: Made change to original olelib: Type FORMATETC had .cfFormat as a short (Integer), but RegisterClipboardFormat returns values exceeding the range of VB's signed integer. There is no unsigned integer type so this has been changed to LONG. Slight code changes may be required for anything using this type. **Please notify me of any incompatibilities ASAP**
+-Added interfaces IDropTargetHelper, IDragSourceHelper, IDragSourceHelper2. These are all createable through the DragDropHelper class, Dim idsh As IDragSourceHelper : Set idsh = New DragDropHelper
+-Related SHDRAGIMAGE struct added
+-Added ShellLibrary coclass so IShellLibrary can be created with New instead of CoCreateInstance
+
+(oleexp v1.8 - Released 01 Jun 2015)
+-Added interfaces IPropertySystem, IPropertyDescription, IPropertyDescription2 and associated enums
+-Major bugfixes: Multiple interfaces had rarely used methods that returned other interfaces declared incorrectly. IShellItem, IShellItem2, IShellItemArray, IShellLibrary, IPropertyChangeArray, ICustomDestinationList¹, IPropertyDescriptionList, and IShellMenu were all effected by this- all methods with riid As UUID, ppv As Any had their definitions changed. This fixed the "Interface marked as restricted or automation type not supported" errors. If you weren't getting that error on the specified interfaces, this error does not effect you and the changes won't require any recoding.
+¹- Stil not working.
+
+(oleexp v1.71 - Released 31 May 2015)
+-I believe the PROPVARIANT structure as included is wholly useless as applied to IShellItem2.GetProperty; this has been changed to return a Variant. Since these types are similar; a Variant can apparently hold a PROPVARIANT well enough to be passed to the PropVariantToVariant API and return something useful, like a thumbnail stream with the vbDataObject type.
+
+(oleexp 1.7 - Released 04 May 2015)
+-New interfaces for IUserNotification2 added. Does not alter original olelib's version, a new coclass is provided and exists together with the original.
+-Attempted to fix SMDATA structure, but not yet tested.
+-No backwards compatibility issues.
+
+(oleexp 1.6 - Released 03 Apr 2015)
+-New interfaces for the MenuBar and Association Handlers added
+-No changes effecting anything in prior versions
+
+(oleexp 1.41 - Released 30 Jan 2015)
+-All IShellItem, IShellItem2, and ICustomDestinationList calls are now functions in order to receive their HRESULT returns
+-IShellItem2 PROPERTYKEY arguments needed to be byref
+-Attempted to redefine PROPVARIANT to at least get longs working, but still fails, despite functions receiving it where a PROPVARIANT receiving a long is expected returning an S_OK hr. I suspect this issue to be the cause of all attempts at using ICustomDestinationList failing.
+
+(oleexp 1.4 - Released 21 Jan 2015)
+-SHELLDETAILS struct now in oleexp instead of olelib
+-IShellFolder2 interface converted to return HRESULT for all functions. All other outputs are now parameters, and all subs are now functions.
+-IPropertyStore calls requiring PROPVARIANT type: changed to void* (As Any) to allow multiple data types by being able to declare PROPVARIANTSTR, PROPVARIANTBOOL, etc within VB and not being restricted to a single type defined in the typelib. Also, SetValue and Commit are now functions returning an HRESULT code. UNDER DEVELOPMENT: Only limited confirmation of whether it's working.
+-IObjectArray GetCount and GetAt are now functions returning an HRESULT code.
+-ICustomDestionationList AddUserTasks now a function returning an HRESULT. UNDER DEVELOPMENT: I have not gotten this interface to work yet, so it's subject to heavy revision.
+
+(oleexp 1.1-1.3 - Released 17 Jan 2015) ...Individual revision history lost.
+-Added interface IModalWindow
+-Added interface IFileOperationProgressSink
+-Added interface set IFileDialog, IFileDialog2, IFileDialogEvents, IFileDialogCustomize, IFileDialogControlEvents, IFileOpenDialog with coclass FileOpenDialog, and IFileSaveDialog with coclass FileSaveDialog.
+-Added interface IShellItemFilter
+-Added interface IPropertyDescriptionList
+
+(oleexp 1.0 - Released 14 Jan 2015)
+Initial Release. New interfaces:
+IShellItem, IShellItem2
+IEnumShellItems
+IShellItemArray
+IShellItemImageFactory
+IShellLibrary
+IThumbnailProvider
+ITaskbarList3, ITaskbarList4, coclass TaskbarList now includes these
+IObjectWithPropertyKey
+IPropertyStore
+IPropertyChange, IProperyChangeArray
+IProgressDialog, IOperationsProgressDialog
+IFileOperation, coclass FileOperation
+IContextMenu3
+IObjectArray
+IObjectCollection, colass EnumerableObjectCollection
+IApplicationDestinations, ICustomDestinationList, coclass DestinationList
+coclass ShellLinkW
+Modified interfaces:
+IShellFolder, IShellFolder2
+IEnumIDList

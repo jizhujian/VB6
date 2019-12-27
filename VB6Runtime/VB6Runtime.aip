@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" CreateVersion="6.8" version="6.8" modules="professional" RootPath="." Language="zh">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="ARPPRODUCTICON" Value="VB6.exe" Type="8"/>
+    <ROW Property="BannerBitmap" MultiBuildValue="DefaultBuild:default_banner.bmp" Type="1"/>
+    <ROW Property="DialogBitmap" MultiBuildValue="DefaultBuild:default_dialog.bmp" Type="1"/>
+    <ROW Property="Manufacturer" Value="季祝建" ValueLocId="*"/>
+    <ROW Property="ProductCode" Value="2052:{1CEAA852-2835-4C2A-B442-01578AE89705} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="2052"/>
+    <ROW Property="ProductName" Value="Microsoft Visual Basic 6.0 SP6 Runtime" ValueLocId="*"/>
+    <ROW Property="ProductVersion" Value="16.11.280"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{E1D4A019-4C6B-4B4B-81D6-F4D09D2FCB22}"/>
+    <ROW Property="WindowsFamily9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows XP x86 Service Pack 3" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64" MultiBuildValue="DefaultBuild:Windows XP x64 ServicePack 2" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="SystemFolder" Directory_Parent="TARGETDIR" DefaultDir="System~1|SystemFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="ADODCCHS.DLL" ComponentId="{9C3AE52A-206C-4C2D-A2B9-A35F1CD0CD9A}" Directory_="SystemFolder" Attributes="0" KeyPath="ADODCCHS.DLL"/>
+    <ROW Component="CMCT3CHS.DLL" ComponentId="{14509278-AAA5-4E75-AA2D-9CBDCCEA8355}" Directory_="SystemFolder" Attributes="0" KeyPath="CMCT3CHS.DLL"/>
+    <ROW Component="CMDLGCHS.DLL" ComponentId="{B4526CFA-0999-4838-94C1-673031A8381F}" Directory_="SystemFolder" Attributes="0" KeyPath="CMDLGCHS.DLL"/>
+    <ROW Component="ComCt332.ocx" ComponentId="{92B72B36-1119-441B-BCEB-564E27768E5C}" Directory_="SystemFolder" Attributes="0" KeyPath="ComCt332.ocx"/>
+    <ROW Component="FLXGDCHS.DLL" ComponentId="{72D5B587-056B-4934-83C2-5B783C7E0F88}" Directory_="SystemFolder" Attributes="0" KeyPath="FLXGDCHS.DLL"/>
+    <ROW Component="MSAdoDc.ocx" ComponentId="{C8288B5D-26C6-49A6-BCF3-11072D2D4B5F}" Directory_="SystemFolder" Attributes="0" KeyPath="MSAdoDc.ocx"/>
+    <ROW Component="MSCC2CHS.DLL" ComponentId="{60A48705-15ED-4AFF-A9BB-222BDE0FAD91}" Directory_="SystemFolder" Attributes="0" KeyPath="MSCC2CHS.DLL"/>
+    <ROW Component="MSCMCCHS.DLL" ComponentId="{280B865A-6D78-4319-B3E4-1042C3A49597}" Directory_="SystemFolder" Attributes="0" KeyPath="MSCMCCHS.DLL"/>
+    <ROW Component="MSFlxGrd.ocx" ComponentId="{5461E5A7-8494-4B60-83AE-7CBE2093D85E}" Directory_="SystemFolder" Attributes="0" KeyPath="MSFlxGrd.ocx"/>
+    <ROW Component="MSHFGCHS.DLL" ComponentId="{23385127-3D64-4375-B5DE-6B8453BFF1AD}" Directory_="SystemFolder" Attributes="0" KeyPath="MSHFGCHS.DLL"/>
+    <ROW Component="MSMPICHS.DLL" ComponentId="{DEE07E20-46C2-439C-A387-176D14F30D1B}" Directory_="SystemFolder" Attributes="0" KeyPath="MSMPICHS.DLL"/>
+    <ROW Component="MSMSKCHS.DLL" ComponentId="{0BE85B6F-AE48-464A-8D02-79C119763B54}" Directory_="SystemFolder" Attributes="0" KeyPath="MSMSKCHS.DLL"/>
+    <ROW Component="MShflxgd.ocx" ComponentId="{2DA4362F-A988-4E5E-B27F-6093DD5A74F2}" Directory_="SystemFolder" Attributes="0" KeyPath="MShflxgd.ocx"/>
+    <ROW Component="RCHTXCHS.DLL" ComponentId="{308386E1-9D5D-4E44-B146-78AAC41B316E}" Directory_="SystemFolder" Attributes="0" KeyPath="RCHTXCHS.DLL"/>
+    <ROW Component="STDFTCHS.DLL" ComponentId="{DAD73C5C-2EF3-4FEB-BF62-1F0647D63624}" Directory_="SystemFolder" Attributes="0" KeyPath="STDFTCHS.DLL"/>
+    <ROW Component="TabCtl32.Ocx" ComponentId="{E8CB6054-C324-4AD1-AAF3-EBF0D7D593D8}" Directory_="SystemFolder" Attributes="0" KeyPath="TabCtl32.Ocx"/>
+    <ROW Component="comdlg32.ocx" ComponentId="{0D2FCA41-2363-4D98-BA50-355F882DD8F1}" Directory_="SystemFolder" Attributes="0" KeyPath="comdlg32.ocx"/>
+    <ROW Component="dbadapt.dll" ComponentId="{134A424B-F4C3-44A5-82DB-A5C7D78509E9}" Directory_="SystemFolder" Attributes="0" KeyPath="dbadapt.dll"/>
+    <ROW Component="mscomct2.ocx" ComponentId="{87113088-C872-4F30-A254-E73C99390F6B}" Directory_="SystemFolder" Attributes="0" KeyPath="mscomct2.ocx"/>
+    <ROW Component="mscomctl.OCX" ComponentId="{EC7C7BCF-83CE-4FA8-BB4E-A1E4FC6AFDCE}" Directory_="SystemFolder" Attributes="0" KeyPath="mscomctl.OCX"/>
+    <ROW Component="msmapi32.Ocx" ComponentId="{731FDE95-DC2F-442B-A2A1-86D25CFB14D9}" Directory_="SystemFolder" Attributes="0" KeyPath="msmapi32.Ocx"/>
+    <ROW Component="msmask32.ocx" ComponentId="{63F41E74-79B2-4926-BE8F-519DF7ABDD5C}" Directory_="SystemFolder" Attributes="0" KeyPath="msmask32.ocx"/>
+    <ROW Component="msstdfmt.dll" ComponentId="{E83AC211-A01E-43CC-A397-44CCFA45ABE5}" Directory_="SystemFolder" Attributes="0" KeyPath="msstdfmt.dll"/>
+    <ROW Component="msvbvm60.dll" ComponentId="{C44C126F-EBE9-49F0-ABE8-7ADFC941E7D4}" Directory_="SystemFolder" Attributes="0" KeyPath="msvbvm60.dll"/>
+    <ROW Component="richtx32.Ocx" ComponentId="{EF75B70C-0628-4BB5-8733-6E1856FE062A}" Directory_="SystemFolder" Attributes="0" KeyPath="richtx32.Ocx"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="Optional" Feature_Parent="VB6Runtime" Title="可选组件" Description="可选组件" Display="3" Level="4" Directory_="APPDIR" Attributes="0" Components="CMCT3CHS.DLL CMDLGCHS.DLL MSCC2CHS.DLL MSCMCCHS.DLL STDFTCHS.DLL ADODCCHS.DLL FLXGDCHS.DLL dbadapt.dll RCHTXCHS.DLL MSMSKCHS.DLL msstdfmt.dll MSMPICHS.DLL MSHFGCHS.DLL"/>
+    <ROW Feature="VB6Runtime" Title="运行时组件" Description="运行时组件" Display="3" Level="1" Directory_="APPDIR" Attributes="0" Components="MSAdoDc.ocx MShflxgd.ocx TabCtl32.Ocx msmapi32.Ocx richtx32.Ocx MSFlxGrd.ocx ComCt332.ocx mscomct2.ocx mscomctl.OCX msvbvm60.dll msmask32.ocx comdlg32.ocx"/>
+    <ATTRIBUTE name="CurrentFeature" value="VB6Runtime"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="ADODCCHS.DLL" Component_="ADODCCHS.DLL" FileName="ADODCCHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\ADODCCHS.DLL" SelfReg="false" Sequence="1"/>
+    <ROW File="CMCT3CHS.DLL" Component_="CMCT3CHS.DLL" FileName="CMCT3CHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\CMCT3CHS.DLL" SelfReg="true" Sequence="2"/>
+    <ROW File="CMDLGCHS.DLL" Component_="CMDLGCHS.DLL" FileName="CMDLGCHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\CMDLGCHS.DLL" SelfReg="false" Sequence="3"/>
+    <ROW File="ComCt332.ocx" Component_="ComCt332.ocx" FileName="ComCt332.ocx" Attributes="0" SourcePath="..\WINDOWS\system32\ComCt332.ocx" SelfReg="true" Sequence="4"/>
+    <ROW File="FLXGDCHS.DLL" Component_="FLXGDCHS.DLL" FileName="FLXGDCHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\FLXGDCHS.DLL" SelfReg="false" Sequence="7"/>
+    <ROW File="MSAdoDc.ocx" Component_="MSAdoDc.ocx" FileName="MSAdoDc.ocx" Attributes="0" SourcePath="..\WINDOWS\system32\MSAdoDc.ocx" SelfReg="true" Sequence="8"/>
+    <ROW File="MSCC2CHS.DLL" Component_="MSCC2CHS.DLL" FileName="MSCC2CHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\MSCC2CHS.DLL" SelfReg="false" Sequence="9"/>
+    <ROW File="MSCMCCHS.DLL" Component_="MSCMCCHS.DLL" FileName="MSCMCCHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\MSCMCCHS.DLL" SelfReg="false" Sequence="10"/>
+    <ROW File="MSFlxGrd.ocx" Component_="MSFlxGrd.ocx" FileName="MSFlxGrd.ocx" Attributes="0" SourcePath="..\WINDOWS\system32\MSFlxGrd.ocx" SelfReg="true" Sequence="24"/>
+    <ROW File="MSHFGCHS.DLL" Component_="MSHFGCHS.DLL" FileName="MSHFGCHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\MSHFGCHS.DLL" SelfReg="false" Sequence="14"/>
+    <ROW File="MSMPICHS.DLL" Component_="MSMPICHS.DLL" FileName="MSMPICHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\MSMPICHS.DLL" SelfReg="false" Sequence="20"/>
+    <ROW File="MSMSKCHS.DLL" Component_="MSMSKCHS.DLL" FileName="MSMSKCHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\MSMSKCHS.DLL" SelfReg="false" Sequence="21"/>
+    <ROW File="MShflxgd.ocx" Component_="MShflxgd.ocx" FileName="MShflxgd.ocx" Attributes="0" SourcePath="..\WINDOWS\system32\MShflxgd.ocx" SelfReg="true" Sequence="13"/>
+    <ROW File="RCHTXCHS.DLL" Component_="RCHTXCHS.DLL" FileName="RCHTXCHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\RCHTXCHS.DLL" SelfReg="false" Sequence="22"/>
+    <ROW File="STDFTCHS.DLL" Component_="STDFTCHS.DLL" FileName="STDFTCHS.DLL" Attributes="0" SourcePath="..\WINDOWS\system32\STDFTCHS.DLL" SelfReg="false" Sequence="15"/>
+    <ROW File="TabCtl32.Ocx" Component_="TabCtl32.Ocx" FileName="TabCtl32.Ocx" Attributes="0" SourcePath="..\WINDOWS\system32\TabCtl32.Ocx" SelfReg="true" Sequence="16"/>
+    <ROW File="comdlg32.ocx" Component_="comdlg32.ocx" FileName="comdlg32.ocx" Attributes="0" SourcePath="..\WINDOWS\system32\comdlg32.ocx" SelfReg="true" Sequence="5"/>
+    <ROW File="dbadapt.dll" Component_="dbadapt.dll" FileName="dbadapt.dll" Attributes="0" SourcePath="..\WINDOWS\system32\dbadapt.dll" SelfReg="true" Sequence="6"/>
+    <ROW File="mscomct2.ocx" Component_="mscomct2.ocx" FileName="mscomct2.ocx" Attributes="0" SourcePath="..\WINDOWS\system32\mscomct2.ocx" SelfReg="true" Sequence="11"/>
+    <ROW File="mscomctl.OCX" Component_="mscomctl.OCX" FileName="mscomctl.OCX" Attributes="0" SourcePath="..\WINDOWS\system32\mscomctl.OCX" SelfReg="true" Sequence="12"/>
+    <ROW File="msmapi32.Ocx" Component_="msmapi32.Ocx" FileName="msmapi32.Ocx" Attributes="0" SourcePath="..\WINDOWS\system32\msmapi32.Ocx" SelfReg="true" Sequence="18"/>
+    <ROW File="msmask32.ocx" Component_="msmask32.ocx" FileName="msmask32.ocx" Attributes="0" SourcePath="..\WINDOWS\system32\msmask32.ocx" SelfReg="true" Sequence="19"/>
+    <ROW File="msstdfmt.dll" Component_="msstdfmt.dll" FileName="msstdfmt.dll" Attributes="0" SourcePath="..\WINDOWS\system32\msstdfmt.dll" SelfReg="true" Sequence="17"/>
+    <ROW File="msvbvm60.dll" Component_="msvbvm60.dll" FileName="msvbvm60.dll" Attributes="0" SourcePath="Z:\D\VB6\Bin\msvbvm60.dll" SelfReg="true" Sequence="25"/>
+    <ROW File="richtx32.Ocx" Component_="richtx32.Ocx" FileName="richtx32.Ocx" Attributes="0" SourcePath="..\WINDOWS\system32\richtx32.Ocx" SelfReg="true" Sequence="23"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageName="VB6Runtime" Languages="zh" InstallationType="4"/>
+    <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_zh.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_FRAGS&gt;UI.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="default_banner.bmp" SourcePath="&lt;AI_RES&gt;default-banner.bmp"/>
+    <ROW Name="default_dialog.bmp" SourcePath="&lt;AI_RES&gt;default-dialog.bmp"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ATTRIBUTE name="FixedSizeBitmaps" value="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="2"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="3"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="VB6.exe" SourcePath="..\Program Files\Microsoft Visual Studio\VB98\VB6.EXE" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="Not Installed" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ATTRIBUTE name="RegisterProduct" value="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="Version9X OR (VersionNT AND (NOT VersionNT64)) OR ((VersionNT64 &gt; 502) OR ((VersionNT64 = 502) AND (ServicePackLevel &gt;= 2)))" Description="[ProductName] 无法安装在低于 [WindowsTypeNT64] 的系统上。" DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="Version9X OR VersionNT64 OR ((VersionNT &gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &gt;= 3)))" Description="[ProductName] 无法安装在低于 [WindowsTypeNT] 的系统上。" DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] 无法安装在 [WindowsFamily9X] 系统上。" DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMax="[|ProductVersion]" Attributes="1025" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+</DOCUMENT>

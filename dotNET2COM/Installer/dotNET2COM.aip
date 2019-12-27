@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" CreateVersion="6.8" version="6.8" modules="professional" RootPath="." Language="zh">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="ALLUSERS" Value="2" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPCONTACT" Value="季祝建"/>
+    <ROW Property="ARPHELPLINK" Value="13862737569"/>
+    <ROW Property="ARPHELPTELEPHONE" Value="季祝建"/>
+    <ROW Property="BannerBitmap" MultiBuildValue="DefaultBuild:default_banner.bmp" Type="1"/>
+    <ROW Property="DialogBitmap" MultiBuildValue="DefaultBuild:default_dialog.bmp" Type="1"/>
+    <ROW Property="Manufacturer" Value="季祝建" ValueLocId="*"/>
+    <ROW Property="ProductCode" Value="2052:{F5C52F24-9E7C-48FB-9258-CD48793773FD} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="2052"/>
+    <ROW Property="ProductName" Value="向 COM 组件公开部分 dotNET 函数库" ValueLocId="*"/>
+    <ROW Property="ProductVersion" Value="16.7.260"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{A4ECB908-82A4-4144-8EB3-98A780F387A9}"/>
+    <ROW Property="WindowsFamily9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows XP x86" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="dotNET2COM.dll" ComponentId="{9FB2EC69-E0CC-446B-BD34-CAAA91801D5C}" Directory_="APPDIR" Attributes="0" KeyPath="dotNET2COM.dll"/>
+    <ROW Component="dotNET2COM.tlb" ComponentId="{01BA1A2A-0885-4C02-9F7B-3E723926BB88}" Directory_="APPDIR" Attributes="0" KeyPath="dotNET2COM.tlb" Type="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="描述" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="dotNET2COM.tlb dotNET2COM.dll"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="dotNET2COM.dll" Component_="dotNET2COM.dll" FileName="dotNET~1.dll|dotNET2COM.dll" Attributes="0" SourcePath="Z:\D\VB6\dotNET2COM\bin\Release\dotNET2COM.dll" SelfReg="dotNetComInterop" Sequence="2" DigSign="true"/>
+    <ROW File="dotNET2COM.tlb" Component_="dotNET2COM.tlb" FileName="dotNET~1.tlb|dotNET2COM.tlb" Attributes="0" SourcePath="Z:\D\VB6\dotNET2COM\bin\Release\dotNET2COM.tlb" SelfReg="false" Sequence="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageName="dotNET2COM" Languages="zh" InstallationType="4"/>
+    <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_zh.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DigCertStoreComponent">
+    <ROW DigitalCertificate="Z:\D\CERT\季祝建.pfx" TimeStampUrl="http://timestamp.verisign.com/scripts/timestamp.dll" SignerDescription="季祝建" DescriptionUrl="http://www.rggydq.com.cn" SignOptions="7" SignTool="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_FRAGS&gt;FolderDlg.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_FRAGS&gt;UI.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="default_banner.bmp" SourcePath="&lt;AI_RES&gt;default-banner.bmp"/>
+    <ROW Name="default_dialog.bmp" SourcePath="&lt;AI_RES&gt;default-dialog.bmp"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ATTRIBUTE name="FixedSizeBitmaps" value="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="3"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="2"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="3"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFilesFolder]Jizhujian\Common"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="Not Installed" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="Version9X OR VersionNT64 OR (VersionNT &gt;= 501)" Description="[ProductName] 无法安装在低于 [WindowsTypeNT] 的系统上。" DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] 无法安装在 [WindowsFamily9X] 系统上。" DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Assembly" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_1" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_10" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_11" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_12" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_13" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_14" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_15" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_16" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_17" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_18" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_19" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_2" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_20" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_21" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_22" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_23" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_24" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_25" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_3" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_4" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_5" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_6" Root="0" Key="Record\{9C052FCE-B1E2-3C68-A3F9-565D75E0E8AF}\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_7" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_8" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Assembly_9" Root="0" Key="Record\{C8D7A604-F94D-3FB4-B035-B0B54AC92CCC}\16.7.0.26" Name="Assembly" Value="dotNET2COM, Version=16.7.0.26, Culture=neutral, PublicKeyToken=9e0f817bf14ff76d" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_1" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_10" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_11" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_2" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_3" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_4" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_5" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_6" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_7" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_8" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="C8FE65_4EBB_45E7_B440_6E39B2CDBF29_9" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32" Name="Class" Value="dotNET2COM.Cryptography" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_1" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.Cryptography" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_10" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32" Name="Class" Value="dotNET2COM.Lunar" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_11" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.Lunar" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_12" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32" Name="Class" Value="dotNET2COM.MailSender" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_13" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.MailSender" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_14" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32" Name="Class" Value="dotNET2COM.Math" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_15" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.Math" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_16" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32" Name="Class" Value="dotNET2COM.NetworkInterface" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_17" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.NetworkInterface" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_18" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32" Name="Class" Value="dotNET2COM.Regex" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_19" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.Regex" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_2" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32" Name="Class" Value="dotNET2COM.Date" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_20" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32" Name="Class" Value="dotNET2COM.SerialPort" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_21" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.SerialPort" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_22" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32" Name="Class" Value="dotNET2COM.String" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_23" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.String" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_24" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32" Name="Class" Value="dotNET2COM.StringBuilder" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_25" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.StringBuilder" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_3" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.Date" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_4" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32" Name="Class" Value="dotNET2COM.File" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_5" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.File" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_6" Root="0" Key="Record\{9C052FCE-B1E2-3C68-A3F9-565D75E0E8AF}\16.7.0.26" Name="Class" Value="dotNET2COM.File+TextEncoding" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_7" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32" Name="Class" Value="dotNET2COM.IdentityCard" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_8" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32\16.7.0.26" Name="Class" Value="dotNET2COM.IdentityCard" Component_="dotNET2COM.dll"/>
+    <ROW Registry="Class_9" Root="0" Key="Record\{C8D7A604-F94D-3FB4-B035-B0B54AC92CCC}\16.7.0.26" Name="Class" Value="dotNET2COM.IdentityCard+GenderEnum" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_1" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_10" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_11" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_12" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_13" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_14" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_15" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_16" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_17" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_18" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_19" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_2" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_20" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_21" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_22" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_23" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_24" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_25" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_3" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_4" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_5" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_6" Root="0" Key="Record\{9C052FCE-B1E2-3C68-A3F9-565D75E0E8AF}\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_7" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_8" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="CodeBase_9" Root="0" Key="Record\{C8D7A604-F94D-3FB4-B035-B0B54AC92CCC}\16.7.0.26" Name="CodeBase" Value="file:///[#dotNET2COM.dll]" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_1" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_10" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_11" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_12" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_13" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_14" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_15" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_16" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_17" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_18" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_19" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_2" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_20" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_21" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_22" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_23" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_24" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_25" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_3" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_4" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_5" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_6" Root="0" Key="Record\{9C052FCE-B1E2-3C68-A3F9-565D75E0E8AF}\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_7" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_8" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="RuntimeVersion_9" Root="0" Key="Record\{C8D7A604-F94D-3FB4-B035-B0B54AC92CCC}\16.7.0.26" Name="RuntimeVersion" Value="v4.0.30319" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_1" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_10" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_11" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_2" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_3" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_4" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_5" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_6" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_7" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_8" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="ThreadingModel_9" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="dotNET2COM.dll"/>
+    <ROW Registry="_" Root="0" Key="dotNET2COM.Cryptography" Value="dotNET2COM.Cryptography" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__1" Root="0" Key="dotNET2COM.Cryptography\CLSID" Value="{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__11" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\ProgId" Value="dotNET2COM.Date" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__12" Root="0" Key="dotNET2COM.File" Value="dotNET2COM.File" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__13" Root="0" Key="dotNET2COM.File\CLSID" Value="{989E3503-32D9-4FEB-8DA2-0B25E6981578}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__14" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}" Value="dotNET2COM.File" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__15" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__17" Root="0" Key="CLSID\{989E3503-32D9-4FEB-8DA2-0B25E6981578}\ProgId" Value="dotNET2COM.File" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__19" Root="0" Key="dotNET2COM.IdentityCard" Value="dotNET2COM.IdentityCard" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__2" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}" Value="dotNET2COM.Cryptography" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__20" Root="0" Key="dotNET2COM.IdentityCard\CLSID" Value="{1DF9B730-A394-4D60-A729-9C117DFB8F99}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__21" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}" Value="dotNET2COM.IdentityCard" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__22" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__24" Root="0" Key="CLSID\{1DF9B730-A394-4D60-A729-9C117DFB8F99}\ProgId" Value="dotNET2COM.IdentityCard" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__26" Root="0" Key="dotNET2COM.Lunar" Value="dotNET2COM.Lunar" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__27" Root="0" Key="dotNET2COM.Lunar\CLSID" Value="{49F6C80F-8688-482A-BF16-56EB7F18099E}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__28" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}" Value="dotNET2COM.Lunar" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__29" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__3" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__31" Root="0" Key="CLSID\{49F6C80F-8688-482A-BF16-56EB7F18099E}\ProgId" Value="dotNET2COM.Lunar" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__32" Root="0" Key="dotNET2COM.MailSender" Value="dotNET2COM.MailSender" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__33" Root="0" Key="dotNET2COM.MailSender\CLSID" Value="{9B14E36D-30BC-48AA-A5BB-12AC792FA740}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__34" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}" Value="dotNET2COM.MailSender" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__35" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__37" Root="0" Key="CLSID\{9B14E36D-30BC-48AA-A5BB-12AC792FA740}\ProgId" Value="dotNET2COM.MailSender" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__38" Root="0" Key="dotNET2COM.Math" Value="dotNET2COM.Math" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__39" Root="0" Key="dotNET2COM.Math\CLSID" Value="{078C82A5-EB10-4F8C-B299-B69FB6FE7256}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__40" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}" Value="dotNET2COM.Math" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__41" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__43" Root="0" Key="CLSID\{078C82A5-EB10-4F8C-B299-B69FB6FE7256}\ProgId" Value="dotNET2COM.Math" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__44" Root="0" Key="dotNET2COM.NetworkInterface" Value="dotNET2COM.NetworkInterface" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__45" Root="0" Key="dotNET2COM.NetworkInterface\CLSID" Value="{CD57949C-BFE6-4CDA-A873-EB523BF89776}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__46" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}" Value="dotNET2COM.NetworkInterface" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__47" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__49" Root="0" Key="CLSID\{CD57949C-BFE6-4CDA-A873-EB523BF89776}\ProgId" Value="dotNET2COM.NetworkInterface" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__5" Root="0" Key="CLSID\{9E3C3A84-22CF-4BCD-B285-A712CB1EB94F}\ProgId" Value="dotNET2COM.Cryptography" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__50" Root="0" Key="dotNET2COM.Regex" Value="dotNET2COM.Regex" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__51" Root="0" Key="dotNET2COM.Regex\CLSID" Value="{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__52" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}" Value="dotNET2COM.Regex" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__53" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__55" Root="0" Key="CLSID\{6BCD5E7D-0128-4144-809E-7D7F4EC0E988}\ProgId" Value="dotNET2COM.Regex" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__56" Root="0" Key="dotNET2COM.SerialPort" Value="dotNET2COM.SerialPort" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__57" Root="0" Key="dotNET2COM.SerialPort\CLSID" Value="{BC321F21-1B00-46DD-8440-2416EE48240F}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__58" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}" Value="dotNET2COM.SerialPort" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__59" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__6" Root="0" Key="dotNET2COM.Date" Value="dotNET2COM.Date" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__61" Root="0" Key="CLSID\{BC321F21-1B00-46DD-8440-2416EE48240F}\ProgId" Value="dotNET2COM.SerialPort" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__62" Root="0" Key="dotNET2COM.String" Value="dotNET2COM.String" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__63" Root="0" Key="dotNET2COM.String\CLSID" Value="{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__64" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}" Value="dotNET2COM.String" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__65" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__67" Root="0" Key="CLSID\{2745C3AD-D0D4-4784-BEA6-9AA2E89ED5BE}\ProgId" Value="dotNET2COM.String" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__68" Root="0" Key="dotNET2COM.StringBuilder" Value="dotNET2COM.StringBuilder" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__69" Root="0" Key="dotNET2COM.StringBuilder\CLSID" Value="{3BD02E47-EB3E-4140-B0C0-716A5255F221}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__7" Root="0" Key="dotNET2COM.Date\CLSID" Value="{F7DA544B-CDB1-47A1-A048-984B47A69A8C}" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__70" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}" Value="dotNET2COM.StringBuilder" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__71" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__73" Root="0" Key="CLSID\{3BD02E47-EB3E-4140-B0C0-716A5255F221}\ProgId" Value="dotNET2COM.StringBuilder" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__8" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}" Value="dotNET2COM.Date" Component_="dotNET2COM.dll"/>
+    <ROW Registry="__9" Root="0" Key="CLSID\{F7DA544B-CDB1-47A1-A048-984B47A69A8C}\InprocServer32" Value="mscoree.dll" Component_="dotNET2COM.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiTypeLibComponent">
+    <ROW LibID="{3131CFE6-39F2-4277-8F1E-72F99E53A875}" Language="0" Component_="dotNET2COM.tlb" Version="4103" Description="向 COM 组件公开部分 dotNET 函数库" Feature_="MainFeature" Cost="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMax="[|ProductVersion]" Attributes="1025" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+</DOCUMENT>

@@ -1,0 +1,18 @@
+'采集条码
+Private Sub Command2_Click()
+    Dim o As New Jizhujian_Barcode.CipherLabCPT
+    Dim data As String
+    Dim result As ReturnValueEnum
+    If o.StartDataUpload("COM1", 115200) = ReturnValueEnum_OK Then
+      Do
+        result = o.ReadDataRecord(data)
+        Select Case result
+        Case ReturnValueEnum_OK
+          '处理数据
+        Case ReturnValueEnum_Timeout
+          Exit Do
+        End Select
+      Loop
+      o.FinishDataUpload
+    End If
+End Sub

@@ -1,0 +1,1 @@
+C:\PROGRA~2\MIB055~1\VC98\Bin\MIDL.exe CommCtrl.idl
